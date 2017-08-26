@@ -1,0 +1,34 @@
+﻿<Window x:Class="TestWpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestWpfApp"
+        mc:Ignorable="d" Height="181" Width="479"
+        Title="TestWpfApp">
+    <Window.Resources>
+        <local:MainViewModel x:Key="MainViewModel" />
+    </Window.Resources>
+    <DockPanel DataContext="{StaticResource MainViewModel}">
+        <Grid DockPanel.Dock="Top" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition  Height="30"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="NotifingProperty" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding TextNotifyingProperty.Value}" />
+            <Label Grid.Row="0" Grid.Column="2" Content="{Binding TextNotifyingProperty.Value}" />
+
+            <Label Grid.Row="1" Grid.Column="0" Content="ValidatingProperty" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding TextValidatingNotifyingProperty.Value, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+            <Label Grid.Row="1" Grid.Column="2" Content="{Binding TextValidatingNotifyingProperty.Value}" />
+            <ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding TextValidatingNotifyingProperty.Errors}" Background="LightCoral" />
+        </Grid>
+    </DockPanel>
+</Window>
