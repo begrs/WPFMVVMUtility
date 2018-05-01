@@ -2,7 +2,7 @@
 WPF MVVM Utility Properties
 
 Please view the provided WPF Test App for an example implementation.
-The basic idea is to have an easy way to use MVVM in smapp WPF apps/tools.
+The basic idea is to have an easy way to use MVVM in small WPF apps/tools.
 It omits the usual 
 
 ```cs
@@ -39,5 +39,6 @@ Binding in xaml:
    
    
    Distant Future:
+   
     * Autocomplete Textbox with optional automatic injection of recently used terms.
     * Full UnitTest coverage.
